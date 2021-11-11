@@ -1,0 +1,80 @@
+Inicialização/desligamento HDFS:
+start-dfs.sh
+stop-dfs.sh
+
+Inicialização/desligamento YARN:
+start-yarn.sh
+stop-yarn.sh
+
+Inicialização/desligamento de ambos:
+start-all.sh  
+stop-all.sh  
+
+
+Navegação:
+
+Criar diretório:
+hdfs dfs -mkdir <diretory>
+ou
+hadoop fs -mkdir <directory>
+
+Listar diretórios/arquivos em diretório:
+hdfs dfs -ls <diretory>
+ou
+hadoop fs -ls <directory>
+
+Inserir arquivos no HDFS:
+hdfs dfs -put <input_file> <directory/file_name>
+ou
+hadoop fs -put <input_file> <directory/file_name>
+
+Recuperar arquivos do HDFS:
+hdfs dfs -get <hdfs_directory/file>  <local_dir>
+ou
+hadoop fs -get <hdfs_directory/file>  <local_dir>
+
+Ler arquivo dentro do Hadoop:
+hdfs dfs -cat <file>
+ou
+hadoop fs -cat <file>
+
+Remover arquivos:
+hdfs dfs -rm <file>
+ou
+hadoop fs -rm <file>
+Use flag -R para remover recursivamente
+
+
+Executar um MapReduce(java):
+
+Compilar código: 
+hadoop com.sun.tools.javac.Main <file_name>.java
+
+Criar .jar: 
+jar cf <jar_name>.jar <file_name>*.class
+
+Enviar trabalho para o hadoop: 
+hadoop jar <jar_name>.jar <file_name> <input_dir> <output_dir>
+
+
+Executar um MapReduce com Hadoop Streaming:
+mapred streaming \
+  -input input \
+  -output output \
+  -mapper mapper.py \
+  -reducer reducer.py \
+  -file mapper.py \
+  -file reducer.py
+
+
+Simular localmente um MapReduce Streaming:
+cat <input_file> | ./mapper.py | sort | ./reducer.py
+
+
+Formatar o namenode em caso de problemas de conexão:
+hadoop namenode -format
+hdfs dfs -mkdir /user
+hdfs dfs -mkdir /user/bigdata-vm
+
+Outros comandos, consultar:
+https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html
