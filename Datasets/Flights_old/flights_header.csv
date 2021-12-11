@@ -1,1 +1,1 @@
-dataVoo,id_companhia,num_voos,origem,destino,hora_partida,min_atraso,hora_chegada,min_atraso,duracao,distancia
+dataVoo,id_companhia,num_voos,origem,destino,hora_partida,min_atraso_partida,hora_chegada,min_atraso_chegada,duracao,distancia
